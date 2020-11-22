@@ -3,7 +3,7 @@
 }
 
 input[type=checkbox] {
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 h3 {
@@ -16,7 +16,7 @@ h3 {
 
 .option {
     float: left;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .ghost-container {
