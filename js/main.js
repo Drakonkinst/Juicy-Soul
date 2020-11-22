@@ -1,27 +1,40 @@
 let ghostData = [];
-let goodData = {};
-let badData = {};
+let goodData = [];
+let badData = [];
+
+// removes first instance of item from an array
+function removeItem(arr, item) {
+    let index = arr.indexOf(item);
+    if(index > -1) {
+        arr.splice(index, 1);
+    }
+}
+
+// adds or removes an item from an array based on the boolean add
+function addOrRemove(arr, item, add) {
+    if(add) {
+        arr.push(item);
+    } else {
+        removeItem(arr, item);
+    }
+}
 
 function addOption(text) {
     let good = $(".checkbox-options-good");
     let el = $("<div>").addClass("option").appendTo(good);
-    $("<input type='checkbox'>").addClass("display-option").appendTo(el).on("click", function() {
-        console.log(text);
-        goodData[text] = $(this).is(":checked");
+    $("<input type='checkbox'>").addClass("display-option").appendTo(el).on("click", function () {
+        addOrRemove(goodData, text, $(this).is(":checked"));
         updateResult();
     });
     $("<div>").addClass("option").text(text).appendTo(el);
-    goodData[text] = false;
-    
+
     let bad = $(".checkbox-options-bad");
     el = $("<div>").addClass("option").appendTo(bad);
     $("<input type='checkbox'>").addClass("display-option").appendTo(el).on("click", function () {
-        console.log("NOT " + text);
-        badData[text] = $(this).is(":checked");
+        addOrRemove(badData, text, $(this).is(":checked"));
         updateResult();
     });
     $("<div>").addClass("option").text("NOT " + text).appendTo(el);
-    badData[text] = false;
 }
 
 function addGhost(name, e1, e2, e3, strength, weakness) {
@@ -37,49 +50,31 @@ function updateResult() {
     let result = $(".result-list").empty();
     for(let ghost of ghostData) {
         if(isGhostValid(ghost)) {
-            // cannot have any ruled out attributes
-            // must have good attributes
             displayGhost(ghost).appendTo(result);
         }
-        
+
     }
 }
 
+// cannot have any ruled out attributes
+// must have good attributes
 function isGhostValid(ghost) {
     let evidence = ghost.evidence;
-    console.log(evidence);
-    for(let k in badData) {
-        console.log(k);
-        if(badData.hasOwnProperty(k)) {
-            if(badData[k] && evidence.includes(k)) {
-                console.log("Bad");
+
+    for(let bad of badData) {
+        if(evidence.includes(bad)) {
+            return false;
+        }
+    }
+
+    if(goodData.length > 0) {
+        for(let good of goodData) {
+            if(!evidence.includes(good)) {
                 return false;
             }
         }
     }
 
-    if(!isGoodEmpty()) {
-        for(let k in goodData) {
-            if(goodData.hasOwnProperty(k)) {
-                if(goodData[k] && !evidence.includes(k)) {
-                    console.log("Not Good");
-                    return false;
-                }
-            }
-        }
-    }
-    
-    return true;
-}
-
-function isGoodEmpty() {
-    for(let k in goodData) {
-        if(goodData.hasOwnProperty(k)) {
-            if(goodData[k]) {
-                return false;
-            }
-        }
-    }
     return true;
 }
 
@@ -93,16 +88,14 @@ function displayGhost(info) {
     return container;
 }
 
-$(function() {
-    console.log("Hello world!");
-    
+$(function () {
     addOption("EMF Level 5");
     addOption("Fingerprints");
     addOption("Freezing Temperatures");
     addOption("Ghost Writing");
     addOption("Spirit Box");
     addOption("Ghost Orbs");
-    
+
     addGhost("Banshee", "EMF Level 5", "Fingerprints", "Freezing Temperatures", "Only targets one player at a time, giving them a really bad night.", "Hates the Crucifix, making it especially effective.");
     addGhost("Demon", "Freezing Temperatures", "Ghost Writing", "Spirit Box", "Once of the most dangerous ghosts. Extremely aggressive with attacks.", "Using the Ouija board to ask questions doesn’t drain sanity.");
     addGhost("Jinn", "EMF Level 5", "Ghost Orbs", "Spirit Box", "The Jinn moves faster the further away you are from it.", "Cutting off the location’s power supply will limit the Jinn’s speed.");
@@ -115,6 +108,6 @@ $(function() {
     addGhost("Spirit", "Fingerprints", "Ghost Writing", "Spirit Box", "A basic ghost with no strengths.", "Using smudge sticks stops from starting for a long time.");
     addGhost("Wraith", "Fingerprints", "Freezing Temperatures", "Spirit Box", "One of the most dangerous ghosts. Can fly through walls and doesn’t leave footprints.", "Has a strong reaction to salt.");
     addGhost("Yurei", "Freezing Temperatures", "Ghost Orbs", "Ghost Writing", "Drains player sanity especially quickly.", "Using a smudge stick in the same room will stop the Yurei from moving.");
-    
+
     updateResult();
 });
