@@ -89,7 +89,7 @@ function displayGhost(info) {
     $("<h3>").addClass("ghost-name").text(info.name).appendTo(container);
     $("<div>").addClass("evidence-container").html("<strong>Evidence</strong>: <u>" + e[0] + "</u>, <u>" + e[1] + "</u>, <u>" + e[2] + "</u>").appendTo(container);
     $("<div>").addClass("ghost-strength").html("<strong>Strength</strong>: " + info.strength).appendTo(container);
-    $("<div>").addClass("ghost-weakness").html("<strong>Weaknesse</strong>: " + info.weakness).appendTo(container);
+    $("<div>").addClass("ghost-weakness").html("<strong>Weakness</strong>: " + info.weakness).appendTo(container);
     return container;
 }
 
