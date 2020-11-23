@@ -115,7 +115,7 @@ $(function () {
     addGhost("Poltergeist", "Fingerprints", "Ghost Orbs", "Spirit Box", "Can throw multiple objects or close multiple doors at once.", "Empty rooms without anything to throw.");
     addGhost("Revenant", "EMF Level 5", "Fingerprints", "Ghost Writing", "Attacks anyone, regardless of sanity levels. Moves extremely quickly when Hunting.", "Moves extremely slowly when players hide.");
     addGhost("Shade", "EMF Level 5", "Ghost Orb", "Ghost Writing", "Extremely shy, making it hard to find and detect with two or more people nearby.", "Won’t Hunt if players are in a group.");
-    addGhost("Spirit", "Fingerprints", "Ghost Writing", "Spirit Box", "A basic ghost with no strengths.", "Using smudge sticks stops from starting for a long time.");
+    addGhost("Spirit", "Fingerprints", "Ghost Writing", "Spirit Box", "A basic ghost with no strengths.", "Using smudge sticks stops them from attacking for 120 seconds instead of 90.");
     addGhost("Wraith", "Fingerprints", "Freezing Temperatures", "Spirit Box", "One of the most dangerous ghosts, as it can see through doors, closets, and lockers while Hunting. Can fly through walls, doors, and doesn’t leave footprints without salt.", "Has a strong reaction to salt.");
     addGhost("Yurei", "Freezing Temperatures", "Ghost Orbs", "Ghost Writing", "Drains player sanity especially quickly.", "Using a smudge stick in the same room will stop the Yurei from moving for a long time.");
 
