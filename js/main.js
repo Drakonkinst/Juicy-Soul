@@ -106,18 +106,18 @@ $(function () {
     addOption("Spirit Box");
     addOption("Ghost Orbs");
 
-    addGhost("Banshee", "EMF Level 5", "Fingerprints", "Freezing Temperatures", "Only targets one player at a time, giving them a really bad night.", "Hates the Crucifix, making it especially effective.");
-    addGhost("Demon", "Freezing Temperatures", "Ghost Writing", "Spirit Box", "Once of the most dangerous ghosts. Extremely aggressive with attacks.", "Using the Ouija board to ask questions doesn’t drain sanity.");
+    addGhost("Banshee", "EMF Level 5", "Fingerprints", "Freezing Temperatures", "Only targets one player at a time until it kills them.", "The Crucifix stops the Banshee's Hunt at 5 meters rather than 3.");
+    addGhost("Demon", "Freezing Temperatures", "Ghost Writing", "Spirit Box", "Demons will attack more often then any other Ghost.", "Using the Ouija board to ask questions doesn’t drain sanity.");
     addGhost("Jinn", "EMF Level 5", "Ghost Orbs", "Spirit Box", "The Jinn moves faster the further away you are from it.", "Cutting off the location’s power supply will limit the Jinn’s speed.");
-    addGhost("Mare", "Freezing Temperatures", "Ghost Orbs", "Spirit Box", "Attacks more frequently in the dark, tends to switch off lights.", "Keeping the lights on.");
+    addGhost("Mare", "Freezing Temperatures", "Ghost Orbs", "Spirit Box", "Attacks more frequently in the dark, tends to switch off lights.", "Keeping the lights on lowers its chance to attack.");
     addGhost("Oni", "EMF Level 5", "Ghost Writing", "Spirit Box", "Extremely active and moves objects quickly.", "Extreme activity with lots of players nearby makes it easy to identify.");
-    addGhost("Phantom", "EMF Level 5", "Freezing Temperatures", "Ghost Orbs", "Looking at the Phantom will reduce your sanity.", "Scared of photos, capturing a photo will cause it to disappear, though not during a hunt.");
-    addGhost("Poltergeist", "Fingerprints", "Ghost Orbs", "Spirit Box", "Throws multiple objects about at once.", "Rooms without any stuff in to throw.");
-    addGhost("Revenant", "EMF Level 5", "Fingerprints", "Ghost Writing", "Attacks anyone, regardless of sanity levels.", "Moves extremely slowly when players hide.");
-    addGhost("Shade", "EMF Level 5", "Ghost Orb", "Ghost Writing", "Extremely shy, making it hard to find and detect.", "Won’t hunt if players are in a group.");
+    addGhost("Phantom", "EMF Level 5", "Freezing Temperatures", "Ghost Orbs", "Looking at the Phantom will considerably drop your sanity.", "Capturing a photo will make it disappear, though not during a Hunt.");
+    addGhost("Poltergeist", "Fingerprints", "Ghost Orbs", "Spirit Box", "Can throw multiple objects or close multiple doors at once.", "Empty rooms without anything to throw.");
+    addGhost("Revenant", "EMF Level 5", "Fingerprints", "Ghost Writing", "Attacks anyone, regardless of sanity levels. Moves extremely quickly when Hunting.", "Moves extremely slowly when players hide.");
+    addGhost("Shade", "EMF Level 5", "Ghost Orb", "Ghost Writing", "Extremely shy, making it hard to find and detect with two or more people nearby.", "Won’t Hunt if players are in a group.");
     addGhost("Spirit", "Fingerprints", "Ghost Writing", "Spirit Box", "A basic ghost with no strengths.", "Using smudge sticks stops from starting for a long time.");
-    addGhost("Wraith", "Fingerprints", "Freezing Temperatures", "Spirit Box", "One of the most dangerous ghosts. Can fly through walls and doesn’t leave footprints.", "Has a strong reaction to salt.");
-    addGhost("Yurei", "Freezing Temperatures", "Ghost Orbs", "Ghost Writing", "Drains player sanity especially quickly.", "Using a smudge stick in the same room will stop the Yurei from moving.");
+    addGhost("Wraith", "Fingerprints", "Freezing Temperatures", "Spirit Box", "One of the most dangerous ghosts, as it can see through doors, closets, and lockers while Hunting. Can fly through walls, doors, and doesn’t leave footprints without salt.", "Has a strong reaction to salt.");
+    addGhost("Yurei", "Freezing Temperatures", "Ghost Orbs", "Ghost Writing", "Drains player sanity especially quickly.", "Using a smudge stick in the same room will stop the Yurei from moving for a long time.");
 
     updateResult();
 });
