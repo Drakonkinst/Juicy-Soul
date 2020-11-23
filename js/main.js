@@ -88,7 +88,17 @@ function displayGhost(info) {
     return container;
 }
 
+function toggleDarkMode() {
+    let isDark = !$("body").hasClass("dark");
+    $("body").toggleClass("dark", isDark);
+    localStorage.setItem("dark", isDark); 
+}
+
 $(function () {
+    if(localStorage.getItem("dark")) {
+        toggleDarkMode();
+    }
+    
     addOption("EMF Level 5");
     addOption("Fingerprints");
     addOption("Freezing Temperatures");

@@ -1,3 +1,13 @@
+body {
+    background-color: white;
+    color: black;
+    border-color: black;
+    -webkit-transition: background-color 0.3s 0s ease, color 0.3s 0s ease, border-color 0.3s 0s ease;
+    -moz-transition: background-color 0.3s 0s ease, color 0.3s 0s ease, border-color 0.3s 0s ease;
+    -o-transition: background-color 0.3s 0s ease, color 0.3s 0s ease, border-color 0.3s 0s ease;
+    transition: background-color 0.3s 0s ease, color 0.3s 0s ease, border-color 0.3s 0s ease;
+}
+
 .content {
     padding: 20px;
 }
@@ -23,4 +33,21 @@ h3 {
     width: 500px;
     border: 1px solid black;
     padding: 5px;
+}
+
+footer {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
+
+.toggle-dark-mode {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.dark {
+    background-color: #222;
+    color: #e6e6e6;
+    border-color: #e6e6e6;
 }
